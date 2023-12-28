@@ -1,9 +1,16 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import DistanceCalculator from './distanceCalculator';
 
 function App() {
   return (
-    <div className="App">
+    <div>
+          <DistanceCalculator />
+      </div>
+
+
+
+    /*<div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -19,6 +26,7 @@ function App() {
         </a>
       </header>
     </div>
+    */
   );
 }
 
