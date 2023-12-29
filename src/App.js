@@ -1,11 +1,12 @@
 import React from 'react';
 import './App.css';
 import DistanceCalculator from './distanceCalculator';
+import RouteCalculator from './routeCalculator';
 
 function App() {
   return (
     <div>
-          <DistanceCalculator />
+          <RouteCalculator />
       </div>
 
 
