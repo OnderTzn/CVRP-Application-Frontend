@@ -12,16 +12,24 @@ const RouteCalculator = () => {
     };
 
     const handleCalculateRoute = async () => {
-        if (addressLimit) {
-            const startTime = performance.now(); // Start timing
-            const calculatedRoute = await calculateOptimalRoute(addressLimit);
-            setRoute(calculatedRoute);
-
-            const endTime = performance.now(); // End timing
-            setCalculationTime(endTime - startTime); // Set the calculation time
-        } else {
+        //console.log('Calculating route with:', addressLimit, vehicleCapacity);
+        if (!addressLimit || addressLimit <= 0) {
             alert('Please enter a valid address limit');
+            return;
         }
+    
+        if (!vehicleCapacity || vehicleCapacity <= 0) {
+            alert('Please enter a valid vehicle capacity');
+            return;
+        }
+    
+        const startTime = performance.now();    //Start timing
+        const calculatedRoute = await calculateOptimalRoute(addressLimit, vehicleCapacity);
+        setRoute(calculatedRoute);
+        console.log('Route state updated:', route);
+    
+        const endTime = performance.now();  //End timing
+        setCalculationTime(endTime - startTime);    //Set the calculation time
     };
 
     const calculateTotalTimeAndDistance = () => {
@@ -48,21 +56,29 @@ const RouteCalculator = () => {
             value={addressLimit} 
             onChange={(e) => setAddressLimit(e.target.value)} 
             placeholder="Enter address limit"
-        />
-        <input 
-            type="number" 
-            value={vehicleCapacity} 
-            onChange={(e) => setVehicleCapacity(e.target.value)} 
-            placeholder="Enter vehicle capacity"
-        />
-        <button onClick={() => calculateOptimalRoute(addressLimit, vehicleCapacity)}>Calculate Route</button>
+            />
+            <input 
+                type="number" 
+                value={vehicleCapacity} 
+                onChange={(e) => setVehicleCapacity(e.target.value)} 
+                placeholder="Enter vehicle capacity"
+            />
+            <button onClick={handleCalculateRoute}>Calculate Route</button>
         
             <div>
-                {Array.isArray(route) && route.map((leg, index) => (
+                {/* Display Depot Information */}
+                {route.length > 0 && (
+                    <p>
+                        Depot ID: {route[0].destinationId}, Latitude: {route[0].latitude}, Longitude: {route[0].longitude}
+                    </p>
+                )}
+
+                {/* Display Each Stop in the Route */}
+                {route.slice(1).map((leg, index) => (
                     <p key={index}>
-                        Stop {index + 1}: ID: {leg.destinationId}, Latitude: {leg.latitude}, Longitude: {leg.longitude}, 
+                        Stop {index + 1}: from ID: {route[index].destinationId} to ID: {leg.destinationId}, 
+                        Latitude: {leg.latitude}, Longitude: {leg.longitude}, 
                         Time: {formatTime(leg.time)}, Distance: {formatDistance(leg.distance)}
-                        {index > 0 ? ` from ID: ${route[index - 1].destinationId}` : ""}
                     </p>
                 ))}
 

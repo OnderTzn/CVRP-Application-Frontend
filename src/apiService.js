@@ -22,7 +22,8 @@ export const calculateDistance = async () => {
 
 export const calculateOptimalRoute = async (addressLimit, vehicleCapacity) => {
     try {
-        const response = await axios.get(`http://localhost:8080/calculateDistance/${addressLimit}/${vehicleCapacity}`);
+        const response = await axios.get(`${BASE_URL}/calculateDistance/${addressLimit}/${vehicleCapacity}`);
+        //console.log('API response:', response.data);
         return response.data;
     } catch (error) {
         console.error('Error fetching route:', error);
