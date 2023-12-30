@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import MapContainer from './MapContainer';
 import { calculateOptimalRoute } from './apiService';
 
 const RouteCalculator = () => {
@@ -50,30 +51,30 @@ const RouteCalculator = () => {
     const totals = calculateTotalTimeAndDistance();
     
     return (
-        <div>
-            <input 
-            type="number" 
-            value={addressLimit} 
-            onChange={(e) => setAddressLimit(e.target.value)} 
-            placeholder="Enter address limit"
-            />
-            <input 
-                type="number" 
-                value={vehicleCapacity} 
-                onChange={(e) => setVehicleCapacity(e.target.value)} 
-                placeholder="Enter vehicle capacity"
-            />
-            <button onClick={handleCalculateRoute}>Calculate Route</button>
-        
-            <div>
-                {/* Display Depot Information */}
+        <div className="route-calculator"> {/* Apply flex layout */}
+            <div className="route-controls"> {/* Controls panel */}
+                {/* Inputs, buttons, and route details here */}
+                <input 
+                    type="number" 
+                    value={addressLimit} 
+                    onChange={(e) => setAddressLimit(e.target.value)} 
+                    placeholder="Enter address limit"
+                />
+                <input 
+                    type="number" 
+                    value={vehicleCapacity} 
+                    onChange={(e) => setVehicleCapacity(e.target.value)} 
+                    placeholder="Enter vehicle capacity"
+                />
+                <button onClick={handleCalculateRoute}>Calculate Route</button>
+
+                {/* Display Depot Information and Each Stop in the Route */}
+                {/* Display total time and distance */}
                 {route.length > 0 && (
                     <p>
                         Depot ID: {route[0].destinationId}, Latitude: {route[0].latitude}, Longitude: {route[0].longitude}
                     </p>
                 )}
-
-                {/* Display Each Stop in the Route */}
                 {route.slice(1).map((leg, index) => (
                     <p key={index}>
                         Stop {index + 1}: from ID: {route[index].destinationId} to ID: {leg.destinationId}, 
@@ -81,13 +82,15 @@ const RouteCalculator = () => {
                         Time: {formatTime(leg.time)}, Distance: {formatDistance(leg.distance)}
                     </p>
                 ))}
-
-                {/* Display total time and distance */}
                 <p>Total Time: {totals.totalTime}</p>
                 <p>Total Distance: {totals.totalDistance}</p>
                 {calculationTime && (
                     <p>Calculation time: {formatCalculationTime(calculationTime)}</p>
                 )}
+            </div>
+
+            <div className="map-container"> {/* Map display */}
+                <MapContainer route={route} />
             </div>
         </div>
     );

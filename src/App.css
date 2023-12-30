@@ -36,3 +36,25 @@
     transform: rotate(360deg);
   }
 }
+
+/* Mobile devices */
+@media (max-width: 600px) {
+  .route-calculator {
+      flex-direction: column;
+  }
+
+  .map-container {
+      height: 50vh; /* Adjust height of the map on small screens */
+  }
+}
+
+/* Larger devices */
+.route-calculator {
+  display: flex;
+  flex-direction: row;
+}
+
+.map-container {
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+}
