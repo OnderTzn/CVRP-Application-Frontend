@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from 'react';
 import { Map, Marker, GoogleApiWrapper } from "google-maps-react";
 
 function createMarkerIcon(text) {
@@ -45,7 +45,7 @@ const MapContainer = ({ google, route }) => {
       initialCenter={
         route.length > 0
           ? { lat: route[0].latitude, lng: route[0].longitude }
-          : { lat: 52.5180243, lng: 13.3780216 }
+          : { lat: 52.5267938, lng: 13.4058845 }
       }
     >
       {route.map((location, index) => {
