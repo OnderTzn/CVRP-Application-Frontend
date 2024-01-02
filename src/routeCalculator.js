@@ -7,6 +7,8 @@ const RouteCalculator = () => {
     const [vehicleCapacity, setVehicleCapacity] = useState(0);
     const [route, setRoute] = useState([]);
     const [calculationTime, setCalculationTime] = useState(null);
+    const [algorithm, setAlgorithm] = useState('Custom');
+
 
     const handleAddressLimitChange = (event) => {
         setAddressLimit(event.target.value);
@@ -25,7 +27,7 @@ const RouteCalculator = () => {
         }
     
         const startTime = performance.now();    //Start timing
-        const calculatedRoute = await calculateOptimalRoute(addressLimit, vehicleCapacity);
+        const calculatedRoute = await calculateOptimalRoute(addressLimit, vehicleCapacity, algorithm);
         setRoute(calculatedRoute);
         console.log('Route state updated:', route);
     
@@ -66,8 +68,15 @@ const RouteCalculator = () => {
                     onChange={(e) => setVehicleCapacity(e.target.value)} 
                     placeholder="Enter vehicle capacity"
                 />
-                <button onClick={handleCalculateRoute}>Calculate Route</button>
+                <select value={algorithm} onChange={(e) => setAlgorithm(e.target.value)}>
+                    <option value="Custom">Custom Routing</option>
+                    <option value="Dijkstra">Dijkstra's Algorithm</option>
+                    {/* Add more options as you implement more algorithms */}
+                </select>
 
+
+                <button onClick={handleCalculateRoute}>Calculate Route</button>
+                
                 {/* Display Depot Information and Each Stop in the Route */}
                 {/* Display total time and distance */}
                 {route.length > 0 && (

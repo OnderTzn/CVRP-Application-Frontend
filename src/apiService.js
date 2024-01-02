@@ -20,9 +20,9 @@ export const calculateDistance = async () => {
     }
 };
 
-export const calculateOptimalRoute = async (addressLimit, vehicleCapacity) => {
+export const calculateOptimalRoute = async (addressLimit, vehicleCapacity, algorithm) => {
     try {
-        const response = await axios.get(`${BASE_URL}/calculateDistance/${addressLimit}/${vehicleCapacity}`);
+        const response = await axios.get(`${BASE_URL}/calculateRoute/${algorithm}/${addressLimit}/${vehicleCapacity}`);
         //console.log('API response:', response.data);
         return response.data;
     } catch (error) {
