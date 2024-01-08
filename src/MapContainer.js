@@ -49,20 +49,18 @@ const MapContainer = ({ google, route }) => {
       }
     >
       {route.map((location, index) => {
-        // Check if the current marker is the depot (first position or any position if depot is revisited)
-        const isDepot = location.destinationId === 1;
+        // Determine if the destination of the current leg is the depot
+        const isDepot = location.originId === 1;
 
-        if (index !== 0 && isDepot) {
-          // Skip rendering the depot if it's not the first stop
-          return null;
-        }
+        // Define label for the marker
+        const label = isDepot ? "Depot" : `Stop ${index}`;
 
         return (
           <Marker
             key={index}
             position={{ lat: location.latitude, lng: location.longitude }}
-            title={isDepot ? "Depot" : `Stop ${index}`}
-            icon={isDepot ? depotIcon : createMarkerIcon(index)} // Use custom icon for depot
+            title={label}
+            icon={isDepot ? depotIcon : createMarkerIcon(index)}
           />
         );
       })}
