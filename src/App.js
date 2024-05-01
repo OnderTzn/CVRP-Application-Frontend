@@ -5,6 +5,8 @@ import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import { registerLicense } from '@syncfusion/ej2-base';
 
 import './App.css';
+import { Navbar, Footer, Sidebar, ThemeSettings } from './components';
+import { Home, Addresses, Routing, Map, Reports, Area, Bar, ColorMapping, Line, Pyramid, Stacked } from './pages';
 import { GoogleMap } from '@react-google-maps/api';
 
 registerLicense('Ngo9BigBOggjHTQxAR8/V1NBaF5cXmZCe0xxWmFZfVpgd19FZ1ZUR2Y/P1ZhSXxXdkFgWX5bc3NQRWRbVUM=');
@@ -27,30 +29,30 @@ const App = () => {
             <div className='w-72 fixed sidebar 
             dark:bg-secondary-dark-bg
             bg-white' >
-              Sidebar
+              <Sidebar />
             </div>
           ) : (
               <div className='w-0 dark:bg-secondary-dark-bg'>
-                Sidebar
+                <Sidebar />
               </div>
           )}
           <div className={
             `dark:bg-main-bg bg-main-bg min-h-screen w-full ${activeMenu ? 'md:ml-72' : 'flex-2'}`
           }>
             <div className='fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full'>
-              Navbar
+              <Navbar />
             </div>
           </div>
 
           <Routes>
-            <Route path='/' element="Home" />
-            <Route path='/home' element="Home" />
+            <Route path='/' element={<Home />} />
+            <Route path='/home' element={<Home />} />
 
             {/* Pages */}
-            <Route path='/addresses' element="Addresses" />
-            <Route path='/route' element="Route" />
-            <Route path='/map' element="Map" />
-            <Route path='/reports' element="Reports" />
+            <Route path='/addresses' element={<Addresses />} />
+            <Route path='/route' element={<Route />} />
+            <Route path='/map' element={<Map />} />
+            <Route path='/reports' element={<Reports />} />
           </Routes>
         </div>
       </BrowserRouter>
