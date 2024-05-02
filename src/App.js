@@ -6,13 +6,16 @@ import { registerLicense } from '@syncfusion/ej2-base';
 
 import './App.css';
 import { Navbar, Footer, Sidebar, ThemeSettings } from './components';
-import { Home, Addresses, Routing, Map, Reports, Area, Bar, ColorMapping, Line, Pyramid, Stacked } from './pages';
+import { Dashboard, Addresses, Routing, Map, Reports, Area, Bar, ColorMapping, Line, Pyramid, Stacked } from './pages';
 import { GoogleMap } from '@react-google-maps/api';
 
-registerLicense('Ngo9BigBOggjHTQxAR8/V1NBaF5cXmZCe0xxWmFZfVpgd19FZ1ZUR2Y/P1ZhSXxXdkFgWX5bc3NQRWRbVUM=');
+import { useStateContext } from'./contexts/ContextProvider';
+
+registerLicense('Ngo9BigBOggjHTQxAR8/V1NBaF5cXmZCf1FpRmJGdld5fUVHYVZUTXxaS00DNHVRdkdnWXpecXVXQmFeUkRyX0I=');
 
 const App = () => {
-  const activeMenu = false;
+  const { activeMenu } = useStateContext();
+
   return (
     <div>
       <BrowserRouter>
@@ -20,8 +23,8 @@ const App = () => {
           <div className='fixed right-4 bottom-4' style={{ zIndex: '1000'}}>
             <TooltipComponent content='Settings' position='Top'>
               <button type='button' className='text-3xl p-3 hover:drop-shadow-xl hover:bg-light-gray text-white'
-              style={{ background: 'blue', borderRadius: '50%' }}>
-                <FiSettings />
+              style={{ background: '#0F172A', borderRadius: '50%' }}>
+                <FiSettings />       
               </button>
             </TooltipComponent>
           </div>
@@ -45,12 +48,12 @@ const App = () => {
           </div>
 
           <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/home' element={<Home />} />
+            <Route path='/' element={<Dashboard />} />
+            <Route path='/dashboard' element={<Dashboard />} />
 
             {/* Pages */}
             <Route path='/addresses' element={<Addresses />} />
-            <Route path='/route' element={<Route />} />
+            <Route path='/route' element={<Routing />} />
             <Route path='/map' element={<Map />} />
             <Route path='/reports' element={<Reports />} />
           </Routes>

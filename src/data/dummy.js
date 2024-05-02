@@ -6,8 +6,10 @@ import { BsKanban, BsBarChart, BsBoxSeam, BsCurrencyDollar, BsShield, BsChatLeft
 import { BiColorFill } from 'react-icons/bi';
 import { IoMdContacts } from 'react-icons/io';
 import { RiContactsLine, RiStockLine } from 'react-icons/ri';
-import { MdDeleteOutline, MdOutlineSupervisorAccount, MdOutlineSlideshow, MdOutlineFindInPage } from 'react-icons/md';
+import { MdDeleteOutline, MdOutlineSupervisorAccount, MdOutlineSpaceDashboard } from 'react-icons/md';
+import { FaRegAddressBook, FaRoute, FaMapMarkedAlt   } from "react-icons/fa";
 import { HiOutlineRefresh } from 'react-icons/hi';
+import { TbReportAnalytics } from "react-icons/tb";
 import { TiDocumentDelete, TiTick } from 'react-icons/ti';
 import { GiLouvrePyramid } from 'react-icons/gi';
 import { GrLocation, GrDocumentUpdate } from 'react-icons/gr';
@@ -26,72 +28,28 @@ import product8 from './product8.jpg';
 
 export const links = [ /*Buttons for sidebar */
   {
-    title: 'Content',
+    title: '',
     links: [
       {
-        name: 'All Contents',
-        icon: <MdOutlineSlideshow />,
-      },
-      /*{
-        name: 'FindContent',
-        icon: <MdOutlineFindInPage />,
-      },*/
-      {
-        name: 'Add Content',
-        icon: <VscAdd />,
+        name: 'Dashboard',
+        icon: <MdOutlineSpaceDashboard />,
       },
       {
-        name: 'Update Content',
-        icon: <GrDocumentUpdate />,
+        name: 'Addresses',
+        icon: <FaRegAddressBook />,
       },
       {
-        name: 'Add License to Content',
-        icon: <AiOutlineFileAdd />,
+        name: 'Route',
+        icon: <FaRoute />,
       },
       {
-        name: 'Delete Content',
-        icon: <MdDeleteOutline />,
+        name: 'Map',
+        icon: <FaMapMarkedAlt />,
       },
       {
-        name: 'Delete License from Content',
-        icon: <TiDocumentDelete />,
-      },
-    ],
-  },
-
-  {
-    title: 'License',
-    links: [
-      {
-        name: 'Show Licenses',
-        icon: <MdOutlineSlideshow />,
-      },
-      {
-        name: 'Find License by Id',
-        icon: <MdOutlineFindInPage />,
-      },
-      {
-        name: 'Add License',
-        icon: <VscAdd />,
-      },
-      {
-        name: 'Update License',
-        icon: <GrDocumentUpdate />,
-      },
-      {
-        name: 'Delete License',
-        icon: <MdDeleteOutline />,
-      },
-    ],
-  },
-
-  {
-    title: 'Calendar',
-    links: [
-      {
-        name: 'Calendar',
-        icon: <AiOutlineCalendar />,
-      },
+        name: 'Reports',
+        icon: <TbReportAnalytics  />,
+      },      
     ],
   },
 ];
