@@ -8,6 +8,8 @@
     "@mui/material": "^5.15.15",
     "@react-google-maps/api": "^2.19.2",
     "@syncfusion/ej2-react-base": "^25.1.35",
+    "@syncfusion/ej2-react-charts": "^25.1.42",
+    "@syncfusion/ej2-react-grids": "^25.1.42",
     "@syncfusion/ej2-react-popups": "^25.1.42",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",

@@ -39,6 +39,10 @@ export const links = [ /*Buttons for sidebar */
         icon: <FaRegAddressBook />,
       },
       {
+        name: 'Add address',
+        icon: <VscAdd />
+      },
+      {
         name: 'Route',
         icon: <FaRoute />,
       },
@@ -54,6 +58,308 @@ export const links = [ /*Buttons for sidebar */
   },
 ];
 
+export const gridAddressStatus = (props) => (
+  <button
+    type="button"
+    style={{ background: props.StatusBg }}
+    className="text-white py-1 px-2 capitalize rounded-2xl text-md"
+  >
+    {props.Status}
+  </button>
+);
+
+export const addressGrid = [
+  {
+    field: 'Id',
+    headerText: 'Id',
+    textAlign: 'Center',
+    width: '80',
+  },
+  {
+    field: 'Latitude',
+    headerText: 'Latitude', 
+    width: '200',
+    editType: 'dropdownedit',
+    textAlign: 'Center',
+  },
+  {
+    field: 'Longitude',
+    headerText: 'Longitude', 
+    width: '200',
+    editType: 'dropdownedit',
+    textAlign: 'Center',
+  },
+  {
+    field: 'Order',
+    headerText: 'Order', 
+    width: '200',
+    editType: 'dropdownedit',
+    textAlign: 'Center',
+  },
+  { field: 'Edit',
+    headerText: 'Edit',
+    width: '150',
+    textAlign: 'Center',
+  },
+];
+
+export const barTimeData = [
+  [
+    { x: '15 Adr 20 Cap', y: 4111 },
+    { x: '40 Adr 100 Cap', y: 4211 },
+    { x: '100 Adr 200 Cap', y: 4311 },
+  ],
+  [
+    { x: '15 Adr 20 Cap', y: 4411 },
+    { x: '40 Adr 100 Cap', y: 4511 },
+    { x: '100 Adr 200 Cap', y: 4611},
+  ],
+  [
+    { x: '15 Adr 20 Cap', y: 4711 },
+    { x: '40 Adr 100 Cap', y: 4811 },
+    { x: '100 Adr 200 Cap', y: 4911 },
+  ],
+  [
+    { x: '15 Adr 20 Cap', y: 4811 },
+    { x: '40 Adr 100 Cap', y: 4911 },
+    { x: '100 Adr 200 Cap', y: 5011 },
+  ],
+];
+
+export const barTimeXAxis = [
+  {
+    dataSource: barTimeData[0],
+    xName: 'x',
+    yName: 'y',
+    name: 'Algorithm 1',
+    type: 'Column',
+    marker: {
+      dataLabel: {
+        visible: true,
+        position: 'Top',
+        font: { fontWeight: '600', color: '#ffffff' },
+      },
+    },
+  },
+  {
+    dataSource: barTimeData[1],
+    xName: 'x',
+    yName: 'y',
+    name: 'Algorithm 2',
+    type: 'Column',
+    marker: {
+      dataLabel: {
+        visible: true,
+        position: 'Top',
+        font: { fontWeight: '600', color: '#ffffff' },
+      },
+    },
+  },
+  {
+    dataSource: barTimeData[2],
+    xName: 'x',
+    yName: 'y',
+    name: 'Algorithm',
+    type: 'Column',
+    marker: {
+      dataLabel: {
+        visible: true,
+        position: 'Top',
+        font: { fontWeight: '600', color: '#ffffff' },
+      },
+    },
+  },
+  {
+    dataSource: barTimeData[3],
+    xName: 'x',
+    yName: 'y',
+    name: 'Algorithm 4',
+    type: 'Column',
+    marker: {
+      dataLabel: {
+        visible: true,
+        position: 'Top',
+        font: { fontWeight: '600', color: '#ffffff' },
+      },
+    },
+  },
+];
+
+export const barDistanceData = [
+  [
+    { x: '15 Adr 20 Cap', y: 1000 },
+    { x: '40 Adr 100 Cap', y: 1250 },
+    { x: '100 Adr 200 Cap', y: 1500 },
+  ],
+  [
+    { x: '15 Adr 20 Cap', y: 1750 },
+    { x: '40 Adr 100 Cap', y: 2000 },
+    { x: '100 Adr 200 Cap', y: 2250 },
+  ],
+  [
+    { x: '15 Adr 20 Cap', y: 2500 },
+    { x: '40 Adr 100 Cap', y: 2750 },
+    { x: '100 Adr 200 Cap', y: 3000 },
+  ],
+  [
+    { x: '15 Adr 20 Cap', y: 2750 },
+    { x: '40 Adr 100 Cap', y: 3000 },
+    { x: '100 Adr 200 Cap', y: 3250 },
+  ],
+];
+
+
+export const barDistanceXAxis = [
+  {
+    dataSource: barDistanceData[0],
+    xName: 'x',
+    yName: 'y',
+    name: 'Algorithm 1',
+    type: 'Column',
+    marker: {
+      dataLabel: {
+        visible: true,
+        position: 'Top',
+        font: { fontWeight: '600', color: '#ffffff' },
+      },
+    },
+  },
+  {
+    dataSource: barDistanceData[1],
+    xName: 'x',
+    yName: 'y',
+    name: 'Algorithm 2',
+    type: 'Column',
+    marker: {
+      dataLabel: {
+        visible: true,
+        position: 'Top',
+        font: { fontWeight: '600', color: '#ffffff' },
+      },
+    },
+  },
+  {
+    dataSource: barDistanceData[2],
+    xName: 'x',
+    yName: 'y',
+    name: 'Algorithm 3',
+    type: 'Column',
+    marker: {
+      dataLabel: {
+        visible: true,
+        position: 'Top',
+        font: { fontWeight: '600', color: '#ffffff' },
+      },
+    },
+  },
+  {
+    dataSource: barDistanceData[3],
+    xName: 'x',
+    yName: 'y',
+    name: 'Algorithm 4',
+    type: 'Column',
+    marker: {
+      dataLabel: {
+        visible: true,
+        position: 'Top',
+        font: { fontWeight: '600', color: '#ffffff' },
+      },
+    },
+  },
+];
+
+export const barExTimeData = [
+  [
+    { x: '15 Adr 20 Cap', y: 1000 },
+    { x: '40 Adr 100 Cap', y: 1250 },
+    { x: '100 Adr 200 Cap', y: 1500 },
+  ],
+  [
+    { x: '15 Adr 20 Cap', y: 1750 },
+    { x: '40 Adr 100 Cap', y: 2000 },
+    { x: '100 Adr 200 Cap', y: 2250 },
+  ],
+  [
+    { x: '15 Adr 20 Cap', y: 2500 },
+    { x: '40 Adr 100 Cap', y: 2750 },
+    { x: '100 Adr 200 Cap', y: 3000 },
+  ],
+  [
+    { x: '15 Adr 20 Cap', y: 3000 },
+    { x: '40 Adr 100 Cap', y: 3250 },
+    { x: '100 Adr 200 Cap', y: 3500 },
+  ],
+];
+
+
+export const barExTimeXAxis = [
+  {
+    dataSource: barExTimeData[0],
+    xName: 'x',
+    yName: 'y',
+    name: 'Algorithm 1',
+    type: 'Column',
+    marker: {
+      dataLabel: {
+        visible: true,
+        position: 'Top',
+        font: { fontWeight: '600', color: '#ffffff' },
+      },
+    },
+  },
+  {
+    dataSource: barExTimeData[1],
+    xName: 'x',
+    yName: 'y',
+    name: 'Algorithm 2',
+    type: 'Column',
+    marker: {
+      dataLabel: {
+        visible: true,
+        position: 'Top',
+        font: { fontWeight: '600', color: '#ffffff' },
+      },
+    },
+  },
+  {
+    dataSource: barExTimeData[2],
+    xName: 'x',
+    yName: 'y',
+    name: 'Algorithm 3',
+    type: 'Column',
+    marker: {
+      dataLabel: {
+        visible: true,
+        position: 'Top',
+        font: { fontWeight: '600', color: '#ffffff' },
+      },
+    },
+  },
+  {
+    dataSource: barExTimeData[3],
+    xName: 'x',
+    yName: 'y',
+    name: 'Algorithm 4',
+    type: 'Column',
+    marker: {
+      dataLabel: {
+        visible: true,
+        position: 'Top',
+        font: { fontWeight: '600', color: '#ffffff' },
+      },
+    },
+  },
+];
+
+
+
+
+
+
+{/* Data buranın üstünde */}
+{/* Data buranın üstünde */}
+{/* Data buranın üstünde */}
+{/* Data buranın üstünde */}
 export const contentData = [
   {
     Id: 1,
@@ -159,63 +465,9 @@ export const licenseData = [
 	},
 ]
 
-export const gridOrderStatus = (props) => (
-  <button
-    type="button"
-    style={{ background: props.StatusBg }}
-    className="text-white py-1 px-2 capitalize rounded-2xl text-md"
-  >
-    {props.Status}
-  </button>
-);
 
-export const contentsGrid = [
-  {
-    field: 'Id',
-    headerText: 'Id',
-    textAlign: 'Center',
-    width: '80',
-  },
-  {
-    field: 'Name',
-    headerText: 'Names', 
-    width: '200',
-    editType: 'dropdownedit',
-    textAlign: 'Center',
-  },
-  {
-    field: 'Status',
-    headerText: 'Status',
-    template: gridOrderStatus,  
-    width: '120',
-    editType: 'dropdownedit',
-    textAlign: 'Center',
-  },
-  { field: 'Licenses',
-    headerText: 'Licenses',
-    width: '150',
-    textAlign: 'Center',
-  },
-  {
-    field: 'PosterUrl',
-    headerText: 'Poster Url',
-    textAlign: 'Center',
-    editType: 'numericedit',
-    width: '150',
-  },
-  {
-    field: 'VideoUrl',
-    headerText: 'Video Url',
-    textAlign: 'Center',
-    width: '120',
-  },
-  {
-    field: 'ContentCode',
-    headerText: 'Content Code',
-    width: '120',
-    textAlign: 'Center',
-  },
-];
+
+
 
 export const gridOrderImage = (props) => (
   <div>
@@ -227,6 +479,48 @@ export const gridOrderImage = (props) => (
   </div>
 );
 
+export const ordersGrid = [
+  {
+    field: 'Id',
+    headerText: 'Id',
+    template: gridOrderImage,
+    textAlign: 'Center',
+    width: '120',
+  },
+  {
+    field: 'OrderItems',
+    headerText: 'Content Name',
+    width: '150',
+    editType: 'dropdownedit',
+    textAlign: 'Center',
+  },
+  { field: 'CustomerName',
+    headerText: 'Status',
+    width: '150',
+    textAlign: 'Center',
+  },
+  {
+    field: 'TotalAmount',
+    headerText: 'Poster Url',
+    format: 'C2',
+    textAlign: 'Center',
+    editType: 'numericedit',
+    width: '150',
+  },
+  {
+    headerText: 'Video Url',
+    template: gridAddressStatus,
+    field: 'OrderItems',
+    textAlign: 'Center',
+    width: '120',
+  },
+  {
+    field: 'OrderID',
+    headerText: 'Content Code',
+    width: '120',
+    textAlign: 'Center',
+  },
+];
 
 
 export const kanbanGrid = [
@@ -426,68 +720,9 @@ export const areaCustomSeries = [
   },
 ];
 
-export const barChartData = [
-  [
-    { x: 'USA', y: 46 },
-    { x: 'GBR', y: 27 },
-    { x: 'CHN', y: 26 },
-  ],
-  [
-    { x: 'USA', y: 37 },
-    { x: 'GBR', y: 23 },
-    { x: 'CHN', y: 18 },
-  ],
-  [
-    { x: 'USA', y: 38 },
-    { x: 'GBR', y: 17 },
-    { x: 'CHN', y: 26 },
-  ],
-];
 
-export const barCustomSeries = [
-  {
-    dataSource: barChartData[0],
-    xName: 'x',
-    yName: 'y',
-    name: 'Gold',
-    type: 'Column',
-    marker: {
-      dataLabel: {
-        visible: true,
-        position: 'Top',
-        font: { fontWeight: '600', color: '#ffffff' },
-      },
-    },
-  },
-  {
-    dataSource: barChartData[1],
-    xName: 'x',
-    yName: 'y',
-    name: 'Silver',
-    type: 'Column',
-    marker: {
-      dataLabel: {
-        visible: true,
-        position: 'Top',
-        font: { fontWeight: '600', color: '#ffffff' },
-      },
-    },
-  },
-  {
-    dataSource: barChartData[2],
-    xName: 'x',
-    yName: 'y',
-    name: 'Bronze',
-    type: 'Column',
-    marker: {
-      dataLabel: {
-        visible: true,
-        position: 'Top',
-        font: { fontWeight: '600', color: '#ffffff' },
-      },
-    },
-  },
-];
+
+
 export const colorMappingData = [
   [
     { x: 'Jan', y: 6.96 },
@@ -720,7 +955,7 @@ export const earningData = [
     title: 'Customers',
     iconColor: '#03C9D7',
     iconBg: '#E5FAFB',
-    pcColor: 'red-600',
+    pcColor: 'text-red-600',
   },
   {
     icon: <BsBoxSeam />,
@@ -729,7 +964,7 @@ export const earningData = [
     title: 'Products',
     iconColor: 'rgb(255, 244, 229)',
     iconBg: 'rgb(254, 201, 15)',
-    pcColor: 'green-600',
+    pcColor: 'text-green-600',
   },
   {
     icon: <FiBarChart />,
@@ -739,7 +974,7 @@ export const earningData = [
     iconColor: 'rgb(228, 106, 118)',
     iconBg: 'rgb(255, 244, 229)',
 
-    pcColor: 'green-600',
+    pcColor: 'text-green-600',
   },
   {
     icon: <HiOutlineRefresh />,
@@ -748,7 +983,7 @@ export const earningData = [
     title: 'Refunds',
     iconColor: 'rgb(0, 194, 146)',
     iconBg: 'rgb(235, 250, 242)',
-    pcColor: 'red-600',
+    pcColor: 'text-red-600',
   },
 ];
 
@@ -969,48 +1204,7 @@ export const userProfileData = [
   },
 ];
 
-export const ordersGrid = [
-  {
-    field: 'Id',
-    headerText: 'Id',
-    template: gridOrderImage,
-    textAlign: 'Center',
-    width: '120',
-  },
-  {
-    field: 'OrderItems',
-    headerText: 'Content Name',
-    width: '150',
-    editType: 'dropdownedit',
-    textAlign: 'Center',
-  },
-  { field: 'CustomerName',
-    headerText: 'Status',
-    width: '150',
-    textAlign: 'Center',
-  },
-  {
-    field: 'TotalAmount',
-    headerText: 'Poster Url',
-    format: 'C2',
-    textAlign: 'Center',
-    editType: 'numericedit',
-    width: '150',
-  },
-  {
-    headerText: 'Video Url',
-    template: gridOrderStatus,
-    field: 'OrderItems',
-    textAlign: 'Center',
-    width: '120',
-  },
-  {
-    field: 'OrderID',
-    headerText: 'Content Code',
-    width: '120',
-    textAlign: 'Center',
-  },
-];
+
 
 export const customersData = [
   {

@@ -8,6 +8,7 @@ export const getAllAddresses = async () => {
         return response.data;
     } catch (error) {
         console.error('Error fetching addresses:', error);
+        return null;
     }
 };
 
@@ -17,6 +18,7 @@ export const calculateDistance = async () => {
         return response.data;
     } catch (error) {
         console.error('Error calculating distance:', error);
+        return null;
     }
 };
 
