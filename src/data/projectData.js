@@ -33,26 +33,32 @@ export const links = [ /*Buttons for sidebar */
       {
         name: 'Dashboard',
         icon: <MdOutlineSpaceDashboard />,
+        path: '/dashboard',
       },
       {
         name: 'Addresses',
         icon: <FaRegAddressBook />,
+        path: '/addresses',
       },
       {
         name: 'Add address',
-        icon: <VscAdd />
+        icon: <VscAdd />,
+        path: '/add-address',
       },
       {
         name: 'Route',
         icon: <FaRoute />,
+        path: '/route',
       },
       {
         name: 'Map',
         icon: <FaMapMarkedAlt />,
+        path: '/map',
       },
       {
         name: 'Reports',
-        icon: <TbReportAnalytics  />,
+        icon: <TbReportAnalytics />,
+        path: '/reports',
       },      
     ],
   },
@@ -90,8 +96,8 @@ export const addressGrid = [
     textAlign: 'Center',
   },
   {
-    field: 'Order',
-    headerText: 'Order', 
+    field: 'Unit',
+    headerText: 'Unit', 
     width: '200',
     editType: 'dropdownedit',
     textAlign: 'Center',
@@ -105,24 +111,24 @@ export const addressGrid = [
 
 export const barTimeData = [
   [
-    { x: '15 Adr 20 Cap', y: 4111 },
-    { x: '40 Adr 100 Cap', y: 4211 },
-    { x: '100 Adr 200 Cap', y: 4311 },
+    { x: '15 Adr 20 Cap', y: 6022 },
+    { x: '40 Adr 100 Cap', y: 8294 },
+    { x: '100 Adr 200 Cap', y: 1 },
   ],
   [
-    { x: '15 Adr 20 Cap', y: 4411 },
-    { x: '40 Adr 100 Cap', y: 4511 },
-    { x: '100 Adr 200 Cap', y: 4611},
+    { x: '15 Adr 20 Cap', y: 6529 },
+    { x: '40 Adr 100 Cap', y: 9944 },
+    { x: '100 Adr 200 Cap', y: 1},
   ],
   [
-    { x: '15 Adr 20 Cap', y: 4711 },
-    { x: '40 Adr 100 Cap', y: 4811 },
-    { x: '100 Adr 200 Cap', y: 4911 },
+    { x: '15 Adr 20 Cap', y: 8826 },
+    { x: '40 Adr 100 Cap', y: 17756 },
+    { x: '100 Adr 200 Cap', y: 1 },
   ],
   [
-    { x: '15 Adr 20 Cap', y: 4811 },
-    { x: '40 Adr 100 Cap', y: 4911 },
-    { x: '100 Adr 200 Cap', y: 5011 },
+    { x: '15 Adr 20 Cap', y: 1 },
+    { x: '40 Adr 100 Cap', y: 1 },
+    { x: '100 Adr 200 Cap', y: 1 },
   ],
 ];
 
@@ -131,7 +137,7 @@ export const barTimeXAxis = [
     dataSource: barTimeData[0],
     xName: 'x',
     yName: 'y',
-    name: 'Algorithm 1',
+    name: 'Nearest Neighbor',
     type: 'Column',
     marker: {
       dataLabel: {
@@ -145,7 +151,7 @@ export const barTimeXAxis = [
     dataSource: barTimeData[1],
     xName: 'x',
     yName: 'y',
-    name: 'Algorithm 2',
+    name: 'Savings',
     type: 'Column',
     marker: {
       dataLabel: {
@@ -159,7 +165,7 @@ export const barTimeXAxis = [
     dataSource: barTimeData[2],
     xName: 'x',
     yName: 'y',
-    name: 'Algorithm',
+    name: 'Simulated Annealing',
     type: 'Column',
     marker: {
       dataLabel: {
@@ -187,24 +193,24 @@ export const barTimeXAxis = [
 
 export const barDistanceData = [
   [
-    { x: '15 Adr 20 Cap', y: 1000 },
-    { x: '40 Adr 100 Cap', y: 1250 },
-    { x: '100 Adr 200 Cap', y: 1500 },
+    { x: '15 Adr 20 Cap', y: 29183 },
+    { x: '40 Adr 100 Cap', y: 37822 },
+    { x: '100 Adr 200 Cap', y: 1 },
   ],
   [
-    { x: '15 Adr 20 Cap', y: 1750 },
-    { x: '40 Adr 100 Cap', y: 2000 },
-    { x: '100 Adr 200 Cap', y: 2250 },
+    { x: '15 Adr 20 Cap', y: 31567 },
+    { x: '40 Adr 100 Cap', y: 46747 },
+    { x: '100 Adr 200 Cap', y: 1 },
   ],
   [
-    { x: '15 Adr 20 Cap', y: 2500 },
-    { x: '40 Adr 100 Cap', y: 2750 },
-    { x: '100 Adr 200 Cap', y: 3000 },
+    { x: '15 Adr 20 Cap', y: 41815 },
+    { x: '40 Adr 100 Cap', y: 86000 },
+    { x: '100 Adr 200 Cap', y: 1 },
   ],
   [
-    { x: '15 Adr 20 Cap', y: 2750 },
-    { x: '40 Adr 100 Cap', y: 3000 },
-    { x: '100 Adr 200 Cap', y: 3250 },
+    { x: '15 Adr 20 Cap', y: 1 },
+    { x: '40 Adr 100 Cap', y: 1 },
+    { x: '100 Adr 200 Cap', y: 1 },
   ],
 ];
 
@@ -214,7 +220,7 @@ export const barDistanceXAxis = [
     dataSource: barDistanceData[0],
     xName: 'x',
     yName: 'y',
-    name: 'Algorithm 1',
+    name: 'Nearest Neighbor',
     type: 'Column',
     marker: {
       dataLabel: {
@@ -228,7 +234,7 @@ export const barDistanceXAxis = [
     dataSource: barDistanceData[1],
     xName: 'x',
     yName: 'y',
-    name: 'Algorithm 2',
+    name: 'Savings',
     type: 'Column',
     marker: {
       dataLabel: {
@@ -242,7 +248,7 @@ export const barDistanceXAxis = [
     dataSource: barDistanceData[2],
     xName: 'x',
     yName: 'y',
-    name: 'Algorithm 3',
+    name: 'Simulated Annealing',
     type: 'Column',
     marker: {
       dataLabel: {
@@ -270,24 +276,24 @@ export const barDistanceXAxis = [
 
 export const barExTimeData = [
   [
-    { x: '15 Adr 20 Cap', y: 1000 },
-    { x: '40 Adr 100 Cap', y: 1250 },
-    { x: '100 Adr 200 Cap', y: 1500 },
+    { x: '15 Adr 20 Cap', y: 13002 },
+    { x: '40 Adr 100 Cap', y: 86218 },
+    { x: '100 Adr 200 Cap', y: 1 },
   ],
   [
-    { x: '15 Adr 20 Cap', y: 1750 },
-    { x: '40 Adr 100 Cap', y: 2000 },
-    { x: '100 Adr 200 Cap', y: 2250 },
+    { x: '15 Adr 20 Cap', y: 30775 },
+    { x: '40 Adr 100 Cap', y: 216091 },
+    { x: '100 Adr 200 Cap', y: 1 },
   ],
   [
-    { x: '15 Adr 20 Cap', y: 2500 },
-    { x: '40 Adr 100 Cap', y: 2750 },
-    { x: '100 Adr 200 Cap', y: 3000 },
+    { x: '15 Adr 20 Cap', y: 4515 },
+    { x: '40 Adr 100 Cap', y: 15369 },
+    { x: '100 Adr 200 Cap', y: 1 },
   ],
   [
-    { x: '15 Adr 20 Cap', y: 3000 },
-    { x: '40 Adr 100 Cap', y: 3250 },
-    { x: '100 Adr 200 Cap', y: 3500 },
+    { x: '15 Adr 20 Cap', y: 1 },
+    { x: '40 Adr 100 Cap', y: 1 },
+    { x: '100 Adr 200 Cap', y: 1 },
   ],
 ];
 
@@ -297,7 +303,7 @@ export const barExTimeXAxis = [
     dataSource: barExTimeData[0],
     xName: 'x',
     yName: 'y',
-    name: 'Algorithm 1',
+    name: 'Nearest Neighbor',
     type: 'Column',
     marker: {
       dataLabel: {
@@ -311,7 +317,7 @@ export const barExTimeXAxis = [
     dataSource: barExTimeData[1],
     xName: 'x',
     yName: 'y',
-    name: 'Algorithm 2',
+    name: 'Savings',
     type: 'Column',
     marker: {
       dataLabel: {
@@ -325,7 +331,7 @@ export const barExTimeXAxis = [
     dataSource: barExTimeData[2],
     xName: 'x',
     yName: 'y',
-    name: 'Algorithm 3',
+    name: 'Simulated Annealing',
     type: 'Column',
     marker: {
       dataLabel: {

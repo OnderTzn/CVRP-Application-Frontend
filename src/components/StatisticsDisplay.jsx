@@ -9,14 +9,7 @@ const StatisticsDisplay = ({ title, stats, chartData, chartId }) => {
         <p className='font-semibold text-xl'>{title}</p>
         <div className='flex items-center gap-4'>
           {/* Icons and labels can be further componentized if they are reused elsewhere */}
-          <p className='flex items-center gap-2 text-gray-600 hover:drop-shadow-xl'>
-            <span><GoDotFill /></span>
-            <span>Expense</span>
-          </p>
-          <p className='flex items-center gap-2 text-green-400 hover:drop-shadow-xl'>
-            <span><GoDotFill /></span>
-            <span>Budget</span>
-          </p>
+          
         </div>
       </div>
       <div className='mt-10 flex gap-10 flex-wrap justify-center'>

@@ -39,8 +39,8 @@ const Dashboard = () => {
         <StatisticsDisplay
           title="Total travel distance in meters"
           stats={[
-            { value: '1000m',  label: 'Algorithm 1' },
-            { value: '2000m', percentage: '23%', label: 'Algorithm 2' }
+            { value: '1000m',  label: 'Algorithm 1 in 40 addresses' },
+            { value: '2000m', percentage: '23%', label: 'Algorithm 2 in 40 addresses' }
           ]}
           chartData={barDistanceXAxis}
           chartId="distance"
