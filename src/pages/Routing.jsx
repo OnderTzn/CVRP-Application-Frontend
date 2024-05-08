@@ -1,20 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { getAllAddresses, submitRoutingData } from "../services/apiService";
+import { useNavigate } from "react-router-dom";
 
 const Routing = () => {
   const [addresses, setAddresses] = useState([]);
   const [depot, setDepot] = useState("");
   const [selectedAddresses, setSelectedAddresses] = useState([]);
   const [vehicleCapacity, setVehicleCapacity] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchAddresses = async () => {
       const data = await getAllAddresses();
       console.log(data);
       if (data) {
-        const addressesWithSelection = data.map(address => ({
+        const addressesWithSelection = data.map((address) => ({
           ...address,
-          isSelected: false
+          isSelected: false,
         }));
         setAddresses(addressesWithSelection);
       }
@@ -30,17 +32,19 @@ const Routing = () => {
       vehicleCapacity: Number(vehicleCapacity),
     };
     console.log(routingData);
-    
+
     const response = await submitRoutingData(routingData);
     if (response) {
-      console.log('Routing data submitted successfully:', response);
+      console.log("Routing data submitted successfully:", response);
+      // Navigate to the Map page and pass the routing data
+      navigate("/map", { state: { routingData: response } });
     } else {
-      console.error('Failed to submit routing data');
+      console.error("Failed to submit routing data");
     }
-  };  
+  };
 
   const handleAddressCheck = (id) => {
-    const updatedAddresses = addresses.map(address => {
+    const updatedAddresses = addresses.map((address) => {
       if (address.id === id) {
         return { ...address, isSelected: !address.isSelected };
       }
@@ -48,16 +52,24 @@ const Routing = () => {
     });
     setAddresses(updatedAddresses);
 
-    const selected = updatedAddresses.filter(address => address.isSelected).map(address => address.id);
+    const selected = updatedAddresses
+      .filter((address) => address.isSelected)
+      .map((address) => address.id);
     setSelectedAddresses(selected);
   };
 
   return (
     <div className="max-w-4xl mx-auto py-10">
       <h2 className="text-2xl font-semibold mb-5">Routing Configuration</h2>
-      <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <form
+        onSubmit={handleSubmit}
+        className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+      >
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="depot">
+          <label
+            className="block text-gray-700 text-sm font-bold mb-2"
+            htmlFor="depot"
+          >
             Depot Address:
           </label>
           <select
@@ -93,7 +105,10 @@ const Routing = () => {
           ))}
         </div>
         <div className="mb-6">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="vehicle-capacity">
+          <label
+            className="block text-gray-700 text-sm font-bold mb-2"
+            htmlFor="vehicle-capacity"
+          >
             Vehicle Capacity:
           </label>
           <input
