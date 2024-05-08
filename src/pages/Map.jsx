@@ -19,9 +19,9 @@ const Map = () => {
     const remainingSeconds = seconds % 60;
 
     let formattedTime = "";
-    if (hours > 0) formattedTime += `${hours}h `;
-    if (minutes > 0 || hours > 0) formattedTime += `${minutes}m `;
-    formattedTime += `${remainingSeconds}s`;
+    if (hours > 0) formattedTime += `${hours} hours `;
+    if (minutes > 0 || hours > 0) formattedTime += `${minutes} meters `;
+    formattedTime += `${remainingSeconds} seconds`;
 
     return formattedTime.trim();
   };
@@ -31,33 +31,40 @@ const Map = () => {
     if (meters >= 1000) {
       const kilometers = Math.floor(meters / 1000);
       const remainingMeters = meters % 1000;
-      return `${kilometers} km ${remainingMeters} m`;
+      return `${kilometers} kilometers ${remainingMeters} meters `;
     } else {
-      return `${meters} m`;
+      return `${meters} meters`;
     }
   };
 
+  const totalTime = routingData?.reduce((acc, curr) => acc + curr.time, 0);
+  const totalDistance = routingData?.reduce((acc, curr) => acc + curr.distance, 0);
+
   return (
-    <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-      <div>
-        <h2>Map & Routing Information</h2>
-        {routingData ? (
-          <ul>
+  <div style={{ display: 'flex', justifyContent: 'space-around', padding: '20px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }}>
+    <div style={{ maxWidth: '600px' }}>
+      <h2 style={{ fontSize: '24px', marginBottom: '20px' }}>Map & Routing Information</h2>
+      {routingData ? (
+        <>
+          <ul style={{ listStyleType: 'none', paddingLeft: '0', marginBottom: '20px' }}>
             {routingData.map((route, index) => (
-              <li key={index}>
+              <li key={index} style={{ marginBottom: '10px', borderBottom: '1px solid #eee', paddingBottom: '10px' }}>
                 From ID: {route.originId} to ID: {route.destinationId}, Time:{" "}
                 {formatTime(route.time)}, Distance:{" "}
                 {formatDistance(route.distance)}
               </li>
             ))}
           </ul>
-        ) : (
-          <p>No routing data available.</p>
-        )}
-      </div>
-      <MapContainer routingData={routingData} />
+          <p style={{ fontWeight: 'bold', color: '#0f172a' }}>Total Time: {formatTime(totalTime)}</p>
+          <p style={{ fontWeight: 'bold', color: '#0f172a' }}>Total Distance: {formatDistance(totalDistance)}</p>
+        </>
+      ) : (
+        <p>No routing data available.</p>
+      )}
     </div>
-  );
+    <MapContainer routingData={routingData} />
+  </div>
+);
 };
 
 export default Map;
