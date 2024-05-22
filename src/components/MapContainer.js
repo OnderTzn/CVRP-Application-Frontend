@@ -20,7 +20,7 @@ const MapContainer = ({ routingData }) => {
       if (!googleMap.current) {
         googleMap.current = new window.google.maps.Map(googleMapRef.current, {
           center: initialCenter,
-          zoom: 8,
+          zoom: 12,
         });
       }
 

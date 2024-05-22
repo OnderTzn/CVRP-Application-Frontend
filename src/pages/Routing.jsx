@@ -7,7 +7,14 @@ const Routing = () => {
   const [depot, setDepot] = useState("");
   const [selectedAddresses, setSelectedAddresses] = useState([]);
   const [vehicleCapacity, setVehicleCapacity] = useState("");
+  const [selectedAlgorithm, setSelectedAlgorithm] = useState("");
   const navigate = useNavigate();
+
+  const algorithms = [
+    { name: "Nearest Neighbor", value: "NearestNeighbor" },
+    { name: "Savings", value: "Savings" },
+    { name: "Simulated Annealing", value: "SimulatedAnnealing" },
+  ];
 
   useEffect(() => {
     const fetchAddresses = async () => {
@@ -27,6 +34,7 @@ const Routing = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const routingData = {
+      algorithm: selectedAlgorithm,
       depot,
       addressList: selectedAddresses,
       vehicleCapacity: Number(vehicleCapacity),
@@ -61,10 +69,25 @@ const Routing = () => {
   return (
     <div className="max-w-4xl mx-auto py-10">
       <h2 className="text-2xl font-semibold mb-5">Routing Configuration</h2>
-      <form
-        onSubmit={handleSubmit}
-        className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
-      >
+      <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="algorithm">
+            Choose Routing Algorithm:
+          </label>
+          <select
+            id="algorithm"
+            className="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            value={selectedAlgorithm}
+            onChange={(e) => setSelectedAlgorithm(e.target.value)}
+          >
+            <option value="">Select an algorithm</option>
+            {algorithms.map((algorithm) => (
+              <option key={algorithm.value} value={algorithm.value}>
+                {algorithm.name}
+              </option>
+            ))}
+          </select>
+        </div>
         <div className="mb-4">
           <label
             className="block text-gray-700 text-sm font-bold mb-2"

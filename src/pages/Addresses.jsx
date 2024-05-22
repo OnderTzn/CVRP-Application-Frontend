@@ -34,7 +34,7 @@ const Addresses = () => {
           <ColumnDirective field='id' headerText='ID' width='100' textAlign='Center'/>
           <ColumnDirective field='latitude' headerText='Latitude' width='100' textAlign='Center'/>
           <ColumnDirective field='longitude' headerText='Longitude' width='100' textAlign='Center'/>
-          <ColumnDirective field='unit' headerText='Unit' width='100' textAlign='Center' />
+          <ColumnDirective field='unit' headerText='Demand' width='100' textAlign='Center' />
           <ColumnDirective field='edit' headerText='Edit' width='100' textAlign='Center'
             template={(props) => (
               <div className='flex items-center justify-center space-x-2'>

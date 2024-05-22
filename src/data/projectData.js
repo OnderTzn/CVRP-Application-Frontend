@@ -121,12 +121,12 @@ export const barTimeData = [
     { x: '100 Adr 200 Cap', y: 1},
   ],
   [
-    { x: '15 Adr 20 Cap', y: 8826 },
-    { x: '40 Adr 100 Cap', y: 17756 },
+    { x: '15 Adr 20 Cap', y: 5025 },
+    { x: '40 Adr 100 Cap', y: 8685 },
     { x: '100 Adr 200 Cap', y: 1 },
   ],
   [
-    { x: '15 Adr 20 Cap', y: 1 },
+    { x: '15 Adr 20 Cap', y: 5372 },
     { x: '40 Adr 100 Cap', y: 1 },
     { x: '100 Adr 200 Cap', y: 1 },
   ],
@@ -179,7 +179,7 @@ export const barTimeXAxis = [
     dataSource: barTimeData[3],
     xName: 'x',
     yName: 'y',
-    name: 'Algorithm 4',
+    name: 'Nearest Neighbor w/Simulated Annealing',
     type: 'Column',
     marker: {
       dataLabel: {
@@ -203,12 +203,12 @@ export const barDistanceData = [
     { x: '100 Adr 200 Cap', y: 1 },
   ],
   [
-    { x: '15 Adr 20 Cap', y: 41815 },
-    { x: '40 Adr 100 Cap', y: 86000 },
+    { x: '15 Adr 20 Cap', y: 23650 },
+    { x: '40 Adr 100 Cap', y: 41631 },
     { x: '100 Adr 200 Cap', y: 1 },
   ],
   [
-    { x: '15 Adr 20 Cap', y: 1 },
+    { x: '15 Adr 20 Cap', y: 25909 },
     { x: '40 Adr 100 Cap', y: 1 },
     { x: '100 Adr 200 Cap', y: 1 },
   ],
@@ -262,7 +262,7 @@ export const barDistanceXAxis = [
     dataSource: barDistanceData[3],
     xName: 'x',
     yName: 'y',
-    name: 'Algorithm 4',
+    name: 'Nearest Neighbor w/Simulated Annealing',
     type: 'Column',
     marker: {
       dataLabel: {
@@ -286,12 +286,12 @@ export const barExTimeData = [
     { x: '100 Adr 200 Cap', y: 1 },
   ],
   [
-    { x: '15 Adr 20 Cap', y: 4515 },
-    { x: '40 Adr 100 Cap', y: 15369 },
+    { x: '15 Adr 20 Cap', y: 22502 },
+    { x: '40 Adr 100 Cap', y: 164502 },
     { x: '100 Adr 200 Cap', y: 1 },
   ],
   [
-    { x: '15 Adr 20 Cap', y: 1 },
+    { x: '15 Adr 20 Cap', y: 37110 },
     { x: '40 Adr 100 Cap', y: 1 },
     { x: '100 Adr 200 Cap', y: 1 },
   ],
@@ -345,7 +345,7 @@ export const barExTimeXAxis = [
     dataSource: barExTimeData[3],
     xName: 'x',
     yName: 'y',
-    name: 'Algorithm 4',
+    name: 'Nearest Neighbor w/Simulated Annealing',
     type: 'Column',
     marker: {
       dataLabel: {

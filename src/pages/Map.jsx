@@ -49,7 +49,7 @@ const Map = () => {
           <ul style={{ listStyleType: 'none', paddingLeft: '0', marginBottom: '20px' }}>
             {routingData.map((route, index) => (
               <li key={index} style={{ marginBottom: '10px', borderBottom: '1px solid #eee', paddingBottom: '10px' }}>
-                From ID: {route.originId} to ID: {route.destinationId}, Time:{" "}
+                {`${index + 1})`} From ID: {route.originId} to ID: {route.destinationId}, Time:{" "}
                 {formatTime(route.time)}, Distance:{" "}
                 {formatDistance(route.distance)}
               </li>
