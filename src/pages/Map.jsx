@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import MapContainer from "../components/MapContainer";
+import { Box, Typography, List, ListItem, Divider, Paper } from '@mui/material';
 
 const Map = () => {
   const location = useLocation();
@@ -20,7 +21,7 @@ const Map = () => {
 
     let formattedTime = "";
     if (hours > 0) formattedTime += `${hours} hours `;
-    if (minutes > 0 || hours > 0) formattedTime += `${minutes} meters `;
+    if (minutes > 0 || hours > 0) formattedTime += `${minutes} minutes `;
     formattedTime += `${remainingSeconds} seconds`;
 
     return formattedTime.trim();
@@ -41,30 +42,35 @@ const Map = () => {
   const totalDistance = routingData?.reduce((acc, curr) => acc + curr.distance, 0);
 
   return (
-  <div style={{ display: 'flex', justifyContent: 'space-around', padding: '20px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }}>
-    <div style={{ maxWidth: '600px' }}>
-      <h2 style={{ fontSize: '24px', marginBottom: '20px' }}>Map & Routing Information</h2>
-      {routingData ? (
-        <>
-          <ul style={{ listStyleType: 'none', paddingLeft: '0', marginBottom: '20px' }}>
-            {routingData.map((route, index) => (
-              <li key={index} style={{ marginBottom: '10px', borderBottom: '1px solid #eee', paddingBottom: '10px' }}>
-                {`${index + 1})`} From ID: {route.originId} to ID: {route.destinationId}, Time:{" "}
-                {formatTime(route.time)}, Distance:{" "}
-                {formatDistance(route.distance)}
-              </li>
-            ))}
-          </ul>
-          <p style={{ fontWeight: 'bold', color: '#0f172a' }}>Total Time: {formatTime(totalTime)}</p>
-          <p style={{ fontWeight: 'bold', color: '#0f172a' }}>Total Distance: {formatDistance(totalDistance)}</p>
-        </>
-      ) : (
-        <p>No routing data available.</p>
-      )}
-    </div>
-    <MapContainer routingData={routingData} />
-  </div>
-);
+    <Box sx={{ display: 'flex', justifyContent: 'space-around', padding: '20px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)', flexWrap: 'wrap' }}>
+      <Paper sx={{ maxWidth: '600px', padding: '20px', marginBottom: '20px' }}>
+        <Typography variant="h4" gutterBottom>Map & Routing Information</Typography>
+        {routingData ? (
+          <>
+            <List>
+              {routingData.map((route, index) => (
+                <React.Fragment key={index}>
+                  <ListItem>
+                    <Typography variant="body1">
+                      {`${index + 1}) From ID: ${route.originId} to ID: ${route.destinationId}, Time: ${formatTime(route.time)}, Distance: ${formatDistance(route.distance)}`}
+                    </Typography>
+                  </ListItem>
+                  {index < routingData.length - 1 && <Divider />}
+                </React.Fragment>
+              ))}
+            </List>
+            <Typography variant="h6" color="primary">Total Time: {formatTime(totalTime)}</Typography>
+            <Typography variant="h6" color="primary">Total Distance: {formatDistance(totalDistance)}</Typography>
+          </>
+        ) : (
+          <Typography>No routing data available.</Typography>
+        )}
+      </Paper>
+      <Box sx={{ width: '800px', height: '800px', marginBottom: '20px' }}>
+        <MapContainer routingData={routingData} />
+      </Box>
+    </Box>
+  );
 };
 
 export default Map;

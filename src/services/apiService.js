@@ -12,6 +12,16 @@ export const getAllAddresses = async () => {
     }
 };
 
+export const getAllResults = async () => {
+    try {
+        const response = await axios.get(`http://localhost:8080/results/all`);
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching results:', error);
+        return null;
+    }
+}
+
 export const calculateDistance = async () => {
     try {
         const response = await axios.get(`${BASE_URL}/calculateDistance`);
@@ -92,3 +102,11 @@ export const submitRoutingData = async (routingData) => {
         return null; // Error occurred
     }
 };
+
+export const uploadCsv = (formData) => {
+    return axios.post(`${BASE_URL}/upload-csv`, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    });
+  };

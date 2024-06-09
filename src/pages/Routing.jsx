@@ -14,6 +14,7 @@ const Routing = () => {
     { name: "Nearest Neighbor", value: "NearestNeighbor" },
     { name: "Savings", value: "Savings" },
     { name: "Simulated Annealing", value: "SimulatedAnnealing" },
+    { name: "Hybrid", value: "NearestNeighborSA" },
   ];
 
   useEffect(() => {
@@ -33,6 +34,32 @@ const Routing = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!selectedAlgorithm) {
+      alert("Please select an algorithm.");
+      return;
+    }
+
+    if (!depot) {
+      alert("Please select a depot.");
+      return;
+    }
+
+    if (!selectedAddresses.length) {
+      alert("Please select at least one address.");
+      return;
+    }
+
+    if (selectedAddresses.includes(depot)) {
+      alert("The depot cannot be selected as an address.");
+      return;
+    }
+
+    if (!vehicleCapacity) {
+      alert("Please enter a vehicle capacity.");
+      return;
+    }    
+
     const routingData = {
       algorithm: selectedAlgorithm,
       depot,

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { updateAddress } from '../services/apiService';
-import SimpleModal from './SimpleModal'; // Make sure this import is correct based on your file structure
+import SimpleModal from './SimpleModal';
 
 const EditButton = ({ id, latitude, longitude, unit, onEditSuccess }) => {
   const [isEditing, setIsEditing] = useState(false);

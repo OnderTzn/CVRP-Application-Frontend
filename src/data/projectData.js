@@ -34,9 +34,9 @@ export const links = [ /*Buttons for sidebar */
         path: '/map',
       },
       {
-        name: 'Reports',
+        name: 'Results',
         icon: <TbReportAnalytics />,
-        path: '/reports',
+        path: '/results',
       },      
     ],
   },

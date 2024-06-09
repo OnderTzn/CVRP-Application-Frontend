@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
+import CsvUpload from "../components/CsvUpload";
 import { Link, useNavigate } from "react-router-dom";
 import { Header } from "../components";
 import { addAddress } from "../services/apiService";
@@ -78,6 +79,10 @@ const AddAddress = () => {
             Cancel
           </Link>
         </form>
+        <div className="mt-4">
+          <Header category="" title="Upload Addresses via CSV" />
+          <CsvUpload />
+        </div>
       </div>
     </div>
   );

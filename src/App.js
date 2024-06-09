@@ -19,13 +19,15 @@ import {
   Pyramid,
   Stacked,
   AddAddress,
+  Results,
 } from "./pages";
 import { GoogleMap } from "@react-google-maps/api";
 
 import { useStateContext } from "./contexts/ContextProvider";
 
 registerLicense(
-  "Ngo9BigBOggjHTQxAR8/V1NBaF5cXmZCf1FpRmJGdld5fUVHYVZUTXxaS00DNHVRdkdnWXpecXVXQmFeUkRyX0I="
+  "Ngo9BigBOggjHTQxAR8/V1NBaF5cXmZCf1FpRmJGdld5fUVHYVZUTXxaS00DNHVRdkdnWXpecXVXQmFeUkRyX0I=",
+  "Ngo9BigBOggjHTQxAR8/V1NBaF5cXmZCf1FpRmJGdld5fUVHYVZUTXxaS00DNHVRdkdnWXleeXRcRGBfUkJxVkY="
 );
 
 const App = () => {
@@ -77,7 +79,7 @@ const App = () => {
               <Route path="/add-address" element={<AddAddress />} />
               <Route path="/route" element={<Routing />} />
               <Route path="/map" element={<Map />} />
-              <Route path="/reports" element={<Reports />} />
+              <Route path="/results" element={<Results />} />
             </Routes>
           </div>
         </div>
