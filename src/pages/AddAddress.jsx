@@ -14,15 +14,40 @@ const AddAddress = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!latitude.trim() || !unit.trim()) {
-      alert('Latitude and Unit fields cannot be empty.');
+    if (!latitude.trim()) {
+      alert('Please fill in the Latitude field.');
+      return;
+    }
+
+    if (isNaN(parseFloat(latitude))) {
+      alert('Latitude must be a number.');
+      return;
+    }
+
+    if (!longitude.trim()) {
+      alert('Please fill in the Longitude field.');
+      return;
+    }
+
+    if (isNaN(parseFloat(longitude))) {
+      alert('Longitude must be a number.');
+      return;
+    }
+
+    if (!unit.trim()) {
+      alert('Please fill in the Unit field.');
+      return;
+    }
+
+    if (isNaN(parseFloat(unit)) || parseFloat(unit) <= 0) {
+      alert('Unit field must be a number greater than 0.');
       return;
     }
 
     const addressData = {
-      latitude,
-      longitude: longitude.trim() ? longitude : null,
-      unit,
+      latitude: parseFloat(latitude),
+      longitude: parseFloat(longitude),
+      unit: parseFloat(unit),
     };
 
     const result = await addAddress(addressData);
@@ -56,6 +81,7 @@ const AddAddress = () => {
             <input
               id="longitude"
               type="text"
+              required
               value={longitude}
               onChange={(e) => setLongitude(e.target.value)}
               className="mt-1 border-2 border-gray-300 rounded-md p-2"

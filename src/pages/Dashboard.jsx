@@ -17,7 +17,7 @@ const Dashboard = () => {
           <div className='flex justify-between items-center'>
             <div>
               <p className='font-bold text-gray-400'>Welcome to Route Master</p>
-              <p className='text-2xl '>Welcome to our routing platform! We use smart algorithms to help you find the best routes quickly and efficiently. Start planning your journey with us today for a smoother travel experience.</p>
+              <p className='text-2xl '>Welcome to Route Master! Our advanced algorithms are designed to optimize your travel routes, saving you time and effort. Begin your journey with us and experience seamless and efficient route planning. See the effectiveness of our algorithms below.</p>
             </div>
           </div>          
         </div>
@@ -28,8 +28,10 @@ const Dashboard = () => {
         <StatisticsDisplay
           title="Total travel time in seconds"
           stats={[
-            { value: '1h 27m 09s', label: 'Algorithm 1 in 40 addresses' },
-            { value: '1h 20m 23s', percentage: '7.76%', label: 'Algorithm 2 in 40 addresses' }
+            { value: '2h 28m 26s', label: 'Nearest Neighbor in 40 addresses' },
+            { value: '2h 45m 33s', percentage: '-11.54%', label: 'Savings in 40 addresses' },
+            { value: '3h 24m 33s', percentage: '-37.55%', label: 'Simulated Annealing in 40 addresses' },
+            { value: '2h 28m 26s', percentage: '0%', label: 'Hybrid in 40 addresses' }
           ]}
           chartData={barTimeXAxis}
           chartId="time"
@@ -39,8 +41,10 @@ const Dashboard = () => {
         <StatisticsDisplay
           title="Total travel distance in meters"
           stats={[
-            { value: '1000m',  label: 'Algorithm 1 in 40 addresses' },
-            { value: '2000m', percentage: '23%', label: 'Algorithm 2 in 40 addresses' }
+            { value: '42km 624m',  label: 'Nearest Neighbor in 40 addresses' },
+            { value: '48km 92m', percentage: '-12.83%', label: 'Savings in 40 addresses' },
+            { value: '60km 204m', percentage: '-41.25%', label: 'Simulated Annealing in 40 addresses' },
+            { value: '42km 624m', percentage: '0%', label: 'Hybrid in 40 addresses' }
           ]}
           chartData={barDistanceXAxis}
           chartId="distance"
@@ -50,11 +54,14 @@ const Dashboard = () => {
         <StatisticsDisplay
           title="Execution time"
           stats={[
-            { value: '1000 ms',  label: 'Algorithm 1' },
-            { value: '2000 ms', percentage: '23%', label: 'Algorithm 2' }
+            { value: '0m 3s 870ms',  label: 'Nearest Neighbor in 40 addresses' },
+            { value: '0m 10s 95ms', percentage: '-160.84%', label: 'Savings in 40 addresses' },
+            { value: '4m 39s 645ms', percentage: '-7125.19%', label: 'Simulated Annealing in 40 addresses' },
+            { value: '4m 33s 48ms', percentage: '-6951.37%', label: 'Hybrid in 40 addresses' }
           ]}
           chartData={barExTimeXAxis}
           chartId="execution-time"
+          axisType="Logarithmic"
         />
       </div>
     </div>

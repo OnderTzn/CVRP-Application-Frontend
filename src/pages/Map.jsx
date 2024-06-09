@@ -43,7 +43,7 @@ const Map = () => {
 
   return (
     <Box sx={{ display: 'flex', justifyContent: 'space-around', padding: '20px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)', flexWrap: 'wrap' }}>
-      <Paper sx={{ maxWidth: '600px', padding: '20px', marginBottom: '20px' }}>
+      <Paper sx={{ maxWidth: '800px', padding: '20px', marginBottom: '20px' }}>
         <Typography variant="h4" gutterBottom>Map & Routing Information</Typography>
         {routingData ? (
           <>

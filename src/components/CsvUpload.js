@@ -1,5 +1,5 @@
 import React from 'react';
-import { uploadCsv } from '../services/apiService'; // Define the API call to backend in apiService
+import { uploadCsv } from '../services/apiService';
 
 const CsvUpload = () => {
   const handleFileUpload = async (event) => {
