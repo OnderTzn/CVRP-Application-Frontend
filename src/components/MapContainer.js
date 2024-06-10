@@ -90,7 +90,7 @@ const MapContainer = ({ routingData }) => {
         },
       });
 
-      // Define colors for the polylines
+      // Colors for the polylines
       const newAddressColor = "#FF0000"; // Red for new addresses
       const returnDepotColor = "#0000FF"; // Blue for returning to depot
 

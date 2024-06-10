@@ -8,7 +8,6 @@ const StatisticsDisplay = ({ title, stats, chartData, chartId }) => {
       <div className='flex justify-between'>
         <p className='font-semibold text-xl'>{title}</p>
         <div className='flex items-center gap-4'>
-          {/* Icons and labels can be further componentized if they are reused elsewhere */}
           
         </div>
       </div>

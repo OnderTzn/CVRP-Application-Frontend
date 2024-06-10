@@ -7,12 +7,34 @@ const EditButton = ({ id, latitude, longitude, unit, onEditSuccess }) => {
   const [editedLatitude, setEditedLatitude] = useState(latitude);
   const [editedLongitude, setEditedLongitude] = useState(longitude);
   const [editedUnit, setEditedUnit] = useState(unit);
+  const [error, setError] = useState('');
 
-  const handleSubmit = async () => {
-    const updated = await updateAddress(id, { latitude: editedLatitude, longitude: editedLongitude, unit: editedUnit });
+  const validateInputs = () => {
+    const latitudeValue = parseFloat(editedLatitude);
+    const longitudeValue = parseFloat(editedLongitude);
+    const unitValue = parseInt(editedUnit, 10);
+
+    if (isNaN(latitudeValue) || isNaN(longitudeValue)) {
+      setError('Latitude and Longitude must be valid double values.');
+      return false;
+    }
+    if (isNaN(unitValue) || !Number.isInteger(unitValue)) {
+      setError('Unit must be a valid integer.');
+      return false;
+    }
+    setError('');
+    return true;
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!validateInputs()) {
+      return;
+    }
+    const updated = await updateAddress(id, { latitude: parseFloat(editedLatitude), longitude: parseFloat(editedLongitude), unit: parseInt(editedUnit, 10) });
     if (updated) {
-      onEditSuccess(id, editedLatitude, editedLongitude, editedUnit);
-      setIsEditing(false); // Close modal on success
+      onEditSuccess(id, parseFloat(editedLatitude), parseFloat(editedLongitude), parseInt(editedUnit, 10));
+      setIsEditing(false);
     } else {
       alert('Failed to update the address. Please try again.');
     }
@@ -25,6 +47,7 @@ const EditButton = ({ id, latitude, longitude, unit, onEditSuccess }) => {
       </button>
       <SimpleModal isOpen={isEditing} onClose={() => setIsEditing(false)}>
         <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+          {error && <div className="text-red-500">{error}</div>}
           <div className="flex justify-between items-center gap-2.5">
             <label className="min-w-[80px]" htmlFor="latitude">Latitude:</label>
             <input id="latitude" className="flex-1 p-2.5 rounded border border-gray-300" type="text" value={editedLatitude} onChange={(e) => setEditedLatitude(e.target.value)} />

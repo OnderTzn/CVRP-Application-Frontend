@@ -50,7 +50,7 @@ const Routing = () => {
       return;
     }
 
-    if (selectedAddresses.includes(depot)) {
+    if (selectedAddresses.includes(Number(depot))) {
       alert("The depot cannot be selected as an address.");
       return;
     }

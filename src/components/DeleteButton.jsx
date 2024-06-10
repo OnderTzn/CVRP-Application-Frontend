@@ -11,7 +11,6 @@ const DeleteButton = ({ id, onDeletionSuccess }) => {
       if (isDeleted) {
         onDeletionSuccess(id);
       } else {
-        // Handle the case where the address couldn't be deleted
         alert('Failed to delete the address. Please try again.');
       }
     }
