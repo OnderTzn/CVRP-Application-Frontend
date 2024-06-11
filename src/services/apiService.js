@@ -32,17 +32,6 @@ export const calculateDistance = async () => {
     }
 };
 
-export const calculateOptimalRoute = async (addressLimit, vehicleCapacity, algorithm) => {
-    try {
-        const response = await axios.get(`${BASE_URL}/calculateRoute/${algorithm}/${addressLimit}/${vehicleCapacity}`);
-        //console.log('API response:', response.data);
-        return response.data;
-    } catch (error) {
-        console.error('Error fetching route:', error);
-        return [];
-    }
-};
-
 export const addAddress = async (addressData) => {
     try {
         const response = await axios.post(`${BASE_URL}/add`, addressData);
@@ -90,7 +79,7 @@ export const updateAddress = async (id, addressData) => {
 
 export const submitRoutingData = async (routingData) => {
     try {
-        const response = await axios.post(`${BASE_URL}/calculate-route`, routingData);
+        const response = await axios.post(`http://localhost:8080/routing/calculate-route`, routingData);
         if (response.status >= 200 && response.status < 300) {
             return response.data; // Successfully submitted and received response
         } else {
