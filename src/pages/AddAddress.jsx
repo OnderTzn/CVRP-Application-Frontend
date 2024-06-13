@@ -35,12 +35,12 @@ const AddAddress = () => {
     }
 
     if (!unit.trim()) {
-      alert('Please fill in the Unit field.');
+      alert('Please fill in the Demand field.');
       return;
     }
 
     if (isNaN(parseFloat(unit)) || parseFloat(unit) <= 0) {
-      alert('Unit field must be a number greater than 0.');
+      alert('Demand field must be a number greater than 0.');
       return;
     }
 

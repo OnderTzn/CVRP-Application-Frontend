@@ -42,7 +42,7 @@ const Dashboard = () => {
           title="Total travel distance in meters"
           stats={[
             { value: '42km 624m',  label: 'Nearest Neighbor in 40 addresses' },
-            { value: '48km 92m', percentage: '-12.83%', label: 'Savings in 40 addresses' },
+            { value: '48km 092m', percentage: '-12.83%', label: 'Savings in 40 addresses' },
             { value: '60km 204m', percentage: '-41.25%', label: 'Simulated Annealing in 40 addresses' },
             { value: '42km 624m', percentage: '0%', label: 'Hybrid in 40 addresses' }
           ]}
@@ -55,9 +55,9 @@ const Dashboard = () => {
           title="Execution time"
           stats={[
             { value: '0m 3s 870ms',  label: 'Nearest Neighbor in 40 addresses' },
-            { value: '0m 10s 95ms', percentage: '-160.84%', label: 'Savings in 40 addresses' },
+            { value: '0m 10s 095ms', percentage: '-160.84%', label: 'Savings in 40 addresses' },
             { value: '4m 39s 645ms', percentage: '-7125.19%', label: 'Simulated Annealing in 40 addresses' },
-            { value: '4m 33s 48ms', percentage: '-6951.37%', label: 'Hybrid in 40 addresses' }
+            { value: '4m 33s 048ms', percentage: '-6951.37%', label: 'Hybrid in 40 addresses' }
           ]}
           chartData={barExTimeXAxis}
           chartId="execution-time"
