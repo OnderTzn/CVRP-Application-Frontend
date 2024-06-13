@@ -88,7 +88,7 @@ const AddAddress = () => {
             />
           </div>
           <div className="flex flex-col">
-            <label htmlFor="unit">Unit:</label>
+            <label htmlFor="unit">Demand:</label>
             <input
               id="unit"
               type="text"
