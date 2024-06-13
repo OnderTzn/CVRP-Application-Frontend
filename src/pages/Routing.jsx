@@ -58,7 +58,12 @@ const Routing = () => {
     if (!vehicleCapacity) {
       alert("Please enter a vehicle capacity.");
       return;
-    }    
+    }
+
+    if (Number(vehicleCapacity) <= 0) {
+      alert("Vehicle capacity must be higher than 0.");
+      return;
+    }
 
     const routingData = {
       algorithm: selectedAlgorithm,
